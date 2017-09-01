@@ -7,6 +7,27 @@ Function Test-Elevation {
     Return $true
 }
 
+Function Invoke-Login {
+    param(
+        [Parameter(Mandatory = $true, Position = 1)]
+        [string]$Profile
+    )
+
+    if (-not (Login-AzureRmAccount)) {
+        return $false
+    }
+
+    $profileDir = Split-Path -Path $Profile
+
+    if (-not (Test-Path $profileDir)) {
+        New-Item $profileDir -ItemType Directory | Out-Null
+    }
+    
+    Save-AzureRmProfile -Path $Profile
+
+    return $true
+}
+
 Function Start-ResourceGroup {
     param(
         [Parameter(Mandatory = $true, Position = 1)]
@@ -39,7 +60,21 @@ Function Start-ResourceGroup {
 
     Write-Host "Starting resource group with tier $GroupTier..."
 
-    Login-AzureRmAccount
+    $profile = Join-Path $env:LOCALAPPDATA -ChildPath "azure-utils" | Join-Path -ChildPath "profile.json"
+    if (-not (Test-Path $profile)) {
+        if (-not (Invoke-Login $profile)) {
+            return
+        }
+    }
+    else {
+        Select-AzureRmProfile -Path $profile
+        
+        if (-not (Get-AzureRmSubscription)) {
+            if (-not (Invoke-Login $profile)) {
+                return
+            } 
+        }
+    }
 
     Select-AzureRmSubscription -SubscriptionName "Non-Production"
 
