@@ -22,6 +22,11 @@ ncp('src', destinationDir, function (err) {
     }
 
     const profilePath = path.join(powerShellDir, "profile.ps1")
+
+    if (!fs.existsSync(profilePath)) {
+        fs.closeSync(fs.openSync(profilePath, 'w'))
+    }
+
     let content = fs.readFileSync(profilePath, "utf-8")
     const regex = /^Import-Module azure-utils$/m
 
