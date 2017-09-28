@@ -23,7 +23,7 @@ Function Invoke-Login {
         New-Item $profileDir -ItemType Directory | Out-Null
     }
     
-    Save-AzureRmProfile -Path $Profile
+    Save-AzureRmProfile -Path $Profile -Force
 
     return $true
 }
