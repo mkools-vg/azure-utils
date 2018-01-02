@@ -1,0 +1,27 @@
+{
+  "name": "azure-utils",
+  "version": "0.0.1",
+  "description": "An assortment of tools to work with Azure",
+  "scripts": {
+    "deploy": "node ./build/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkools-vg/powershell-utils%1B%5BD%1B%5BD%1B%5B%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5Bazure-utils.git"
+  },
+  "keywords": [
+    "azure",
+    "powershell"
+  ],
+  "author": "Maarten Kools",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkools-vg/powershell-utils%1B%5BD%1B%5BD%1B%5B%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5Bazure-utils/issues"
+  },
+  "homepage": "https://github.com/mkools-vg/powershell-utils%1B%5BD%1B%5BD%1B%5B%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5Bazure-utils#readme",
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.1"
+  }
+}
